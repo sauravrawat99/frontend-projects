@@ -1,0 +1,392 @@
+boiler plate code every time use boiler plate code */ * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* 📒 CSS Units & Min/Max Complete Notes
+
+  1️⃣ Absolute Units
+px → Fixed pixels, device size change hone par bhi same rahte.
+font-size: 16px;
+
+2️⃣ Relative Units
+Ye apne reference element ke size ke hisaab se change hote hain.
+
+em
+Reference: Parent element ka font-size.
+
+Nested hone par multiply ho sakta hai.
+
+p { font-size: 1.5em; } /* 1.5 × parent size
+
+rem
+Reference: Root (<html>) ka font-size.
+
+Consistent rahte hai, nesting ka effect nahi hota.
+
+h1 { font-size: 2rem; } /* 2 × root size
+
+3️⃣ Viewport Units
+Ye screen size ke hisaab se calculate hote hain.
+
+1vh → Viewport height ka 1%
+
+1vw → Viewport width ka 1%
+
+section { height: 100vh; }
+h1 { font-size: 5vw; }
+
+
+4️⃣ Min/Max Properties
+Element ke size ko limit karte hain.
+
+min-width / min-height → Minimum limit set karta hai.
+
+max-width / max-height → Maximum limit set karta hai.
+
+div {
+  width: 50%;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+5️⃣ CSS Functions
+Dynamic sizing ke liye.
+
+min(a, b)
+Chhota value lega.
+
+width: min(50%, 400px);
+
+max(a, b)
+width: max(50%, 400px);
+
+clamp(min, preferred, max)
+Minimum, preferred, aur maximum value ek saath set karta hai.
+
+font-size: clamp(14px, 2vw, 20px);
+
+
+
+
+| Unit / Function | Best For                   | Reference        |
+| --------------- | -------------------------- | ---------------- |
+| px              | Fixed UI                   | None             |
+| em              | Component scaling          | Parent font-size |
+| rem             | Global scaling             | Root font-size   |
+| vh              | Fullscreen height sections | Viewport height  |
+| vw              | Responsive fonts/layouts   | Viewport width   |
+| min-width       | Minimum element size       | Fixed/relative   |
+| max-width       | Maximum element size       | Fixed/relative   |
+| min()           | Chhota value choose        | Calculation      |
+| max()           | Bada value choose          | Calculation      |
+| clamp()         | Flexible + safe range      | Min–Max control  |
+
+
+ */
+
+/* 📒 CSS Text Properties 
+
+ 1️⃣ text-align
+Text ko horizontally align karta hai.
+
+text-align: left;     /* Default */
+/* 
+text-align: right;
+text-align: center;
+text-align: justify;  Equal space between words
+
+2️⃣ text-decoration
+Text pe underline, overline, ya strikethrough lagata hai.
+
+text-decoration: none;       /* Remove underline (links) */
+/* text-decoration: underline;
+text-decoration: overline;
+text-decoration: line-through; 
+text-decoration-color, text-decoration-style, text-decoration-thickness bhi set kar sakte ho.
+
+3️⃣ text-transform
+Text ka case change karta hai.
+
+text-transform: none;
+text-transform: uppercase;   SAB CAPITAL 
+text-transform: lowercase;   sab small 
+text-transform: capitalize;  Har Word Ka First Letter Capital 
+
+4️⃣ letter-spacing
+Letters ke beech ka gap control karta hai.
+letter-spacing: 2px;  Har letter ke beech 2px gap 
+
+5️⃣ word-spacing
+Words ke beech ka gap control karta hai.
+
+css
+Copy
+Edit
+word-spacing: 10px;
+6️⃣ line-height
+Line ke upar aur niche ka vertical gap control karta hai.
+
+css
+Copy
+Edit
+line-height: 1.5; /* 1.5 × font size 
+7️⃣ text-indent
+Paragraph ka first line kitna andar se start ho.
+
+
+text-indent: 50px;
+8️⃣ white-space
+Text ka wrapping aur spaces kaise handle honge.
+
+
+white-space: normal;   /* Default, wrap hota hai 
+white-space: nowrap;   /* Wrap nahi hoga, ek line me chalega 
+white-space: pre;      /* Spaces & line breaks preserve hote hain 
+white-space: pre-wrap; /* Spaces preserve + wrap bhi hota hai 
+
+
+9️⃣ overflow-wrap / word-break
+Long words ko break karne ka control.
+overflow-wrap: break-word; /* Long words break ho jaye 
+word-break: break-all;     /* Har jagah break ho sakta hai 
+
+
+🔟 text-shadow
+Text pe shadow lagata hai.
+text-shadow: 2px 2px 5px gray; /* x-offset, y-offset, blur, color 
+1️⃣1️⃣ direction
+Text ka direction set karta hai.
+
+direction: ltr; /* Left to right 
+direction: rtl; /* Right to left 
+1️⃣2️⃣ Writing mode
+Text flow ka direction set karta hai (vertical layouts ke liye).
+
+
+writing-mode: horizontal-tb; /* Default 
+writing-mode: vertical-rl;   /* Top to bottom, right to left 
+writing-mode: vertical-lr;   /* Top to bottom, left to right 
+
+1️⃣3️⃣ font-related properties
+Text ka style, weight, size set karta hai.
+
+
+| Property        | Purpose                    |
+| --------------- | -------------------------- |
+| text-align      | Horizontal alignment       |
+| text-decoration | Underline/overline/strike  |
+| text-transform  | Upper/lower/capitalize     |
+| letter-spacing  | Gap between letters        |
+| word-spacing    | Gap between words          |
+| line-height     | Gap between lines          |
+| text-indent     | First line indent          |
+| white-space     | Wrapping & spaces control  |
+| overflow-wrap   | Long word wrapping         |
+| text-shadow     | Shadow effect              |
+| direction       | LTR / RTL text             |
+| writing-mode    | Horizontal / vertical text |
+| font-\*         | Font style, size, weight   |
+
+
+
+📒 CSS Flexbox – Complete Notes
+
+1️⃣ Flexbox Kya Hai?
+CSS layout system jo elements ko flexible aur responsive banata hai.
+
+1D layout (ya to row ya column) ke liye best hota hai.
+
+Parent = Flex container
+Child = Flex items
+
+.container {
+  display: flex; /* Flexbox activate 
+}
+
+
+2️⃣ Flex Container Properties
+Yeh properties parent element pe lagti hain.
+
+display: flex
+Flexbox enable karta hai.
+
+Items ek hi line (row) me arrange hote hain by default.
+
+flex-direction
+Items kis direction me arrange honge.
+
+flex-direction: row;        /* Default - left to right 
+flex-direction: row-reverse;/* Right to left 
+flex-direction: column;     /* Top to bottom 
+flex-direction: column-reverse;
+flex-wrap
+Items wrap (line break) kare ya nahi.
+
+
+flex-wrap: nowrap;   /* Default - No wrap 
+flex-wrap: wrap;     /* Wrap to next line 
+flex-wrap: wrap-reverse;
+flex-flow
+flex-direction + flex-wrap ka shorthand.
+
+
+flex-flow: row wrap;
+justify-content (Main axis alignment)
+Items ko horizontally align karta hai (agar flex-direction: row).
+
+justify-content: flex-start; /* Default - Left aligned
+justify-content: flex-end;   /* Right aligned 
+justify-content: center;     
+justify-content: space-between;
+justify-content: space-around;
+justify-content: space-evenly;
+align-items (Cross axis alignment)
+Items ko vertically align karta hai (agar flex-direction: row).
+
+
+align-items: flex-start;
+align-items: flex-end;
+align-items: center;
+align-items: stretch; /* Default 
+align-items: baseline;
+align-content
+Multiple rows/columns ke beech spacing control karta hai (jab wrap ho).
+
+
+align-content: flex-start;
+align-content: flex-end;
+align-content: center;
+align-content: space-between;
+align-content: space-around;
+align-content: stretch;
+3️⃣ Flex Item Properties
+Yeh properties child elements pe lagti hain.
+
+order
+Flex items ka order change karta hai.
+
+
+.item1 { order: 2; }
+.item2 { order: 1; }
+flex-grow
+Extra space fill karne ka ratio.
+
+
+.item { flex-grow: 1; } /* Equal grow 
+flex-shrink
+Chhota hone ka ratio jab space kam ho.
+
+.item { flex-shrink: 1; } /* Default 
+flex-basis
+Initial size before space distribution.
+
+
+.item { flex-basis: 200px; }
+flex
+flex-grow flex-shrink flex-basis ka shorthand.
+
+
+.item { flex: 1 1 200px; }
+align-self
+Individual item ka vertical alignment change karta hai.
+
+
+.item { align-self: center; }
+4️⃣ Visual Axis Concept
+Main axis → flex-direction ke direction me.
+
+Cross axis → Uske perpendicular direction me.
+
+Example:
+flex-direction: row → Main axis horizontal, Cross axis vertical.
+
+5️⃣ Quick Example
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+  margin: 10px;
+}
+6️⃣ Interview Point Summary
+Flexbox → 1D layout, Grid → 2D layout.
+
+justify-content → main axis alignment.
+
+align-items → cross axis alignment.
+
+flex-grow → kitna expand kare.
+
+flex-shrink → kitna shrink kare.
+
+flex-basis → starting size.
+
+
+
+
+=====================================
+📒 CSS Pseudo-class & Pseudo-element
+
+1️⃣ Pseudo-class
+Definition: Special state of an element ko target karta hai.
+
+Syntax: selector:pseudo-class
+
+Example: Hover, visited, first-child, etc.
+
+a:hover { color: red; }         /* Mouse hover hone par 
+a:active { color: green; }      /* Click hone ke time 
+a:visited { color: purple; }    /* Link already visited 
+input:focus { border: 2px solid blue; } /* Input me cursor aane par 
+
+p:first-child { color: red; }   /* Parent ka pehla child 
+p:last-child { color: blue; }   /* Parent ka last child 
+p:nth-child(2) { color: green; }/* Second child 
+p:nth-of-type(odd) { background: lightgray; } /* Odd paragraphs 
+
+input:checked { background: yellow; } /* Checkbox checked hone par 
+button:disabled { opacity: 0.5; }     /* Disabled button 
+
+2️⃣ Pseudo-element
+Definition: Element ke specific part ko target karta hai, jaise text ka pehla letter ya before/after ka content.
+
+Syntax: selector::pseudo-element
+
+Example: ::before, ::after, ::first-line, etc.
+
+p::first-line { font-weight: bold; }   /* Sirf first line style */
+/* p::first-letter { font-size: 2em; }    /* Sirf first letter style 
+
+p::before {
+  content: "👉 ";  /* Text se pehle icon/text add
+  color: red;
+}
+
+p::after {
+  content: " ✅";  /* Text ke baad icon/text add 
+  color: green;
+}
+
+::selection {
+  background: yellow; /* Text select hone par background 
+  color: black;
+} 
+
+
+| Feature        | Pseudo-class                  | Pseudo-element             |
+| -------------- | ----------------------------- | -------------------------- |
+| Target         | Element ka **state/position** | Element ka **part**        |
+| Syntax         | `:` single colon              | `::` double colon          |
+| Example        | `:hover`, `:first-child`      | `::before`, `::first-line` |
+| Content insert | ❌ Nahi kar sakte              | ✅ Kar sakte ho (`content`) |*/
