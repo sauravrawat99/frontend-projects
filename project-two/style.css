@@ -25,9 +25,10 @@ body {
   /* background-color: aqua; */
 }
 #left h1 {
-  font-size: 80px;
+  /* font-size: 80px; */
+  font-size: 8vw;
   font-weight: 100;
-  line-height: 75px;
+  line-height: 8vw;
 }
 #color {
   margin-top: 80px;
@@ -117,4 +118,7 @@ body {
   display: inline;
   transform-origin: 0 0;
   font-weight: 100;
+}
+
+@media (max-width: 600) {
 }

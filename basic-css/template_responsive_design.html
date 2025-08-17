@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Website</title>
+
+  <style>
+    /* 🎯 Reset CSS (Default margin, padding hata raha hu) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 🎨 Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* 🏷️ Header styling */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 📌 Navigation bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #444;
+      padding: 10px;
+    }
+
+    /* 🔗 Nav links */
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* 📦 Main container with grid layout */
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* 2:1 ratio (content : sidebar) */
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* ✍️ Content section */
+    .content {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* 📎 Sidebar section */
+    .sidebar {
+      background: #ddd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* ⚓ Footer styling */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    /* 🖼️ Image responsive banane ke liye */
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* 📱 Media Queries for responsiveness */
+
+    /* Tablet view (<=1024px) */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr; /* Sidebar niche chala jayega */
+      }
+      nav {
+        flex-wrap: wrap; /* Nav items wrap ho jayenge */
+      }
+    }
+
+    /* Mobile view (<=600px) */
+    @media (max-width: 600px) {
+      header {
+        font-size: 18px; /* Heading choti kar di */
+      }
+      nav {
+        flex-direction: column; /* Nav vertical ho jayega */
+        align-items: center;
+      }
+      nav a {
+        margin: 5px 0; /* Links ke beech thoda gap */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🏷️ Header -->
+  <header>
+    <h1>My Responsive Website</h1>
+  </header>
+
+  <!-- 📌 Navigation Menu -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- 📦 Main Content + Sidebar -->
+  <div class="container">
+    <!-- ✍️ Main Content -->
+    <div class="content">
+      <h2>Main Content</h2>
+      <p>
+        This is the main content section. Resize your browser or check in mobile view
+        to see how it becomes responsive.
+      </p>
+      <img src="https://picsum.photos/600/300" alt="Sample Image">
+    </div>
+
+    <!-- 📎 Sidebar -->
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+      <p>This is the sidebar area. On small screens it moves below the content.</p>
+    </div>
+  </div>
+
+  <!-- ⚓ Footer -->
+  <footer>
+    <p>© 2025 My Website | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
