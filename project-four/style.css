@@ -1,0 +1,322 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* main */
+#main {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  /* overflow-x: hidden; */
+  /* 
+📝 Note: Margin Collapse Issue
+--------------------------------
+- Agar parent (#main) ke andar child (#nav) par sirf margin-top lagao,
+  to wo margin parent ke bahar push ho jata hai (collapse ho jata hai).
+- Isiliye parent ko thoda padding-top ya border-top dena padta hai,
+  taki child ka margin collapse na ho.
+- Alternative: parent me overflow: hidden; bhi use kar sakte ho.
+*/
+  padding-top: 0.1px;
+  position: relative;
+}
+
+/* nav */
+#nav {
+  height: 10vh;
+  width: 100%;
+  margin-top: 20px;
+  /* background: #000; */
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#nav h2 {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #a33232; */
+  font-weight: 400;
+  font-size: 20px;
+  border-right: 2px solid black;
+}
+#nav h2:nth-last-child(1) {
+  width: 10%;
+  border: none;
+}
+
+#nav h1 {
+  font-family: Monument;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22%;
+  height: 100%;
+  letter-spacing: -1px;
+}
+#center {
+  width: 100%;
+  height: 90%;
+  position: relative;
+  padding: 3vw;
+  /* background: #b41616; */
+}
+#content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background-color: blue; */
+}
+#content video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#overlay {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  /* background-color: aqua; */
+  bottom: 0;
+  padding: 3vw;
+}
+#over1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding-bottom: 1vw;
+}
+#over1 h1 {
+  font-size: 3.6vw;
+}
+#over1 h2 {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  font-size: 3vw;
+  font-weight: 100;
+}
+#over2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid white;
+  color: #fff;
+}
+#over2 h4 {
+  font-size: 2vw;
+}
+
+#over2 img {
+  height: 4vw;
+}
+
+#scroll {
+  height: 40vh; /* Scroll area ki height = viewport height ka 40% */
+  width: 100%; /* Pure width lega */
+  white-space: nowrap; /* Images ek hi line me chipki rahengi (line break nahi hoga) */
+  overflow-x: hidden; /* Horizontal scrolling hide */
+  overflow-y: hidden; /* Vertical scroll hide */
+}
+
+.container {
+  height: 100%;
+  width: 110%; /* Thoda zyada width taaki scroll aaye */
+  display: inline-block; /* Ek inline-block container (nowrap ke andar kaam karega) */
+  padding: 2vw;
+  animation-name: scroll;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; /* Thoda gap andar se */
+}
+
+#scroll img {
+  height: 100%; /* Image ko container height se thoda bada */
+  width: 15%; /* Har image ki width = parent ka 15% */
+  border-radius: 50%; /* Circle images ban jaengi */
+  margin: 1vw; /* Images ke beech spacing */
+  object-fit: cover; /* Image ko crop karke fit karega */
+  object-position: top; /* Crop karte waqt top se focus karega */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+#alphabet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  /* background: red; */
+  width: 100%;
+  height: 9vh;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin: 2vh 0;
+}
+
+#alphabet h5 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.8vw;
+  font-style: italic;
+  border-bottom: 2px solid black;
+  margin-right: 4px;
+}
+
+#alphabet h6 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1vw;
+  gap: 1vw;
+  /* background: yellowgreen; */
+  padding: 0.5vw 0.7vw;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+#alphabet h6:hover {
+  border: 1px solid rgb(9, 0, 0);
+  cursor: pointer;
+  transition: all ease(1);
+}
+
+#pagetwo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* background-color: aquamarine; */
+  justify-content: space-between;
+  padding: 2vw 3vw 0 3vw;
+}
+#part1 {
+  background-image: url(./photo/oleg-ivanov-QhR78CbFPoE-unsplash.jpg);
+  height: 100%;
+  width: 55%;
+  background-size: cover;
+  background-position: top;
+}
+#part2 {
+  height: 100%;
+  width: 40%;
+}
+#part2 img {
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#part2-text {
+  padding-top: 3.9vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#VOGUE-SHOT {
+  margin-left: 3%;
+  padding-top: 1%;
+}
+#page3 {
+  /* background: #f33b3b; */
+  height: 100%;
+  width: 100%;
+  padding: 2vw 3vw 2vw 3vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+#page3-part1 {
+  height: 100%;
+  width: 30%;
+  /* background: #000000; */
+}
+#page3-part1 img {
+  height: 70%;
+  width: 100%;
+}
+#page3-part2 {
+  background-image: url(./photo/nicole-geri-Eb1mX9ds7sc-unsplash.jpg);
+  height: 100%;
+  width: 65%;
+  /* jab tak ye property use nahi karti image nahi dekte  */
+  background-size: cover;
+  background-position: center;
+}
+#page4 {
+  height: 100%;
+  padding: 2vw 3vw 2vw 3vw;
+
+  width: 100%;
+}
+#page4 img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  object-position: 80% 20%;
+}
+
+#page5 {
+  height: 100%;
+  padding: 2vw 3vw 2vw 3vw;
+  width: 100%;
+  /* background-color: bisque; */
+}
+.elem {
+  height: 10vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: aquamarine; */
+  border-top: 2px solid black;
+}
+.elem:nth-last-child(1) {
+  border-bottom: 2px solid black;
+}
+
+.elem-photo {
+  width: 10%;
+  height: 9vw;
+  border-radius: 50%;
+  /* background-color: rgb(222, 135, 6); */
+  position: relative;
+}
+.elem-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.elem-right {
+  width: 45%;
+  font-size: 1.5vw;
+  font-weight: 100;
+}
+.elem > h4 {
+  font-weight: 200;
+  font-size: 1.5vw;
+}
+
+#page5 h1 {
+  padding: 5vw 40%;
+  font-size: 4vw;
+}
